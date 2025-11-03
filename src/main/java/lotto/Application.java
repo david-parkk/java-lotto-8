@@ -27,7 +27,7 @@ public class Application {
 
         LottoMachine lottoMachine = new LottoMachine(lotto, bonusLotto, winningMachine);
 
-        WinningType winningTypeResult = lottoMachine.checkWinning(lotto);
-        output.outputWinningResult(winningTypes, winningTypeResult);
+        List<WinningType> winningTypeResults = lottoMachine.checkWinnings(lottos);
+        output.outputWinningResult(winningTypes, winningTypeResults);
     }
 }

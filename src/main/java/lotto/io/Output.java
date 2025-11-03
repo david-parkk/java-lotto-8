@@ -19,18 +19,21 @@ public class Output {
         System.out.println();
     }
 
-    public void outputWinningResult(List<WinningType> winningTypes, WinningType winningTypeResult) {
+    public void outputWinningResult(List<WinningType> winningTypes, List<WinningType> winningTypeResults) {
         System.out.print("당첨 통계\n");
         System.out.print("---\n");
         winningTypes.stream()
-                .forEach(winningType -> outputWinningResult(winningType, winningTypeResult));
+                .forEach(winningType -> outputWinningResult(winningType, winningTypeResults));
     }
 
-    public void outputWinningResult(WinningType winningType, WinningType winningTypeResult) {
+    public void outputWinningResult(WinningType winningType, List<WinningType> winningTypeResults) {
         int count = 0;
-        if (winningType.equals(winningTypeResult)) {
-            count++;
+        for (WinningType winningTypeResult : winningTypeResults) {
+            if (winningType.isQualified(winningTypeResult)) {
+                count++;
+            }
         }
+
         if (winningType.hasBonus()) {
 
             System.out.printf("%d개 일치, 보너스 볼 일치 (%s원) - %d개\n", winningType.getSameCount(),

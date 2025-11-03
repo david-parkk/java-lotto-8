@@ -41,4 +41,8 @@ public class WinningType {
         WinningType winningType = (WinningType) o;
         return prize == winningType.prize;
     }
+
+    public boolean isQualified(WinningType winningType) {
+        return prize == winningType.prize;
+    }
 }

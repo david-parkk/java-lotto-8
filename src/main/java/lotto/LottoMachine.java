@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LottoMachine {
@@ -22,12 +23,26 @@ public class LottoMachine {
         for (Integer number : numbers) {
             if (hasLottoNumber(number)) {
                 sameCount++;
+                continue;
             }
             if (hasBonusNumber(number)) {
                 hasBonus = true;
+                continue;
             }
         }
         return winningMachine.WinningMachine(sameCount, hasBonus);
+    }
+
+    public List<WinningType> checkWinnings(List<Lotto> lottos) {
+        List<WinningType> winningTypes = new ArrayList<>();
+
+        for (Lotto lotto : lottos) {
+            WinningType winningType = checkWinning(lotto);
+            if (winningType != null) {
+                winningTypes.add(winningType);
+            }
+        }
+        return winningTypes;
     }
 
     private boolean hasLottoNumber(Integer inputNumber) {
