@@ -11,6 +11,10 @@ public class BonusLotto {
         this.number = number;
     }
 
+    public Integer getNumber() {
+        return number;
+    }
+
     private void validate(Integer number) {
         if (number == null) {
             System.out.println(ERROR_LOG + INVALID_LOTTO_LENGTH);
