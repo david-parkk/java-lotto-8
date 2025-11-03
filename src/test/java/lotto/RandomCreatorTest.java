@@ -12,4 +12,12 @@ class RandomCreatorTest {
 
         Assertions.assertThat(randomNumber >= 1 && randomNumber <= 10);
     }
+
+    @Test
+    void 랜덤_숫자_범위를_검증한다() {
+        RandomCreator randomCreator = new RandomCreator(1, 1);
+        Integer randomNumber = randomCreator.createRandomNumber();
+
+        Assertions.assertThat(randomNumber == 1);
+    }
 }
