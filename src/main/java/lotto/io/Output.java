@@ -44,12 +44,21 @@ public class Output {
                 numberFormat.format(winningType.getPrize()), count);
     }
 
-    public void outputSummary(double incomePercent) {
+    public void outputSummary(int money, List<WinningType> winningTypes) {
+        double incomePercent = summary(money, winningTypes);
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMinimumFractionDigits(1);
         numberFormat.setMaximumFractionDigits(1);
         String formattedValue = numberFormat.format(incomePercent * 100) + "%";
         System.out.printf("총 수익률은 %s입니다.\n", formattedValue);
+    }
+
+    private double summary(int money, List<WinningType> winningTypes) {
+        int income = winningTypes.stream()
+                .map(winningType -> winningType.getPrize())
+                .mapToInt(Integer::intValue)
+                .sum();
+        return (double) income / money;
     }
 
 

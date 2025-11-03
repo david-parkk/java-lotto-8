@@ -29,5 +29,6 @@ public class Application {
 
         List<WinningType> winningTypeResults = lottoMachine.checkWinnings(lottos);
         output.outputWinningResult(winningTypes, winningTypeResults);
+        output.outputSummary(money, winningTypeResults);
     }
 }
