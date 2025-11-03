@@ -27,10 +27,9 @@ public class LottoFactory {
 
         while (true) {
             List<Integer> numbers = lotto.getNumbers();
-            boolean isDuplicated = numbers.stream()
-                    .anyMatch(number -> randomNumber.equals(number));
+            boolean isDuplicated = numbers.contains(randomNumber);
             if (isDuplicated) {
-                randomCreator.createRandomNumber();
+                randomNumber = randomCreator.createRandomNumber();
                 continue;
             }
             return new BonusLotto(randomNumber);
