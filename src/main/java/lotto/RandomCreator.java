@@ -7,15 +7,13 @@ public class RandomCreator {
 
     private final int startRange;
     private final int endRange;
-    private final int count;
 
-    public RandomCreator(final int startRange, final int endRange, final int count) {
+    public RandomCreator(final int startRange, final int endRange) {
         this.startRange = startRange;
         this.endRange = endRange;
-        this.count = count;
     }
 
-    public List<Integer> createRandomNumbers() {
+    public List<Integer> createRandomNumbers(int count) {
         return Randoms.pickUniqueNumbersInRange(startRange, endRange, count);
     }
 

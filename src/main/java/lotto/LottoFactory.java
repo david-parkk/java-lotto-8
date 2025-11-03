@@ -7,18 +7,18 @@ public class LottoFactory {
 
     private RandomCreator randomCreator;
 
-    public LottoFactory(int startNumber, int endNumber, int lottoLength) {
-        this.randomCreator = new RandomCreator(startNumber, endNumber, lottoLength);
+    public LottoFactory(int startNumber, int endNumber) {
+        this.randomCreator = new RandomCreator(startNumber, endNumber);
     }
 
-    public Lotto createRandomLotto() {
-        List<Integer> numbers = randomCreator.createRandomNumbers();
+    public Lotto createRandomLotto(int lottoLength) {
+        List<Integer> numbers = randomCreator.createRandomNumbers(lottoLength);
         return new Lotto(numbers);
     }
 
-    public List<Lotto> createRandomLottos(int count) {
-        return IntStream.rangeClosed(1, count)
-                .mapToObj(i -> createRandomLotto())
+    public List<Lotto> createRandomLottos(int lottoCount, int lottoLength) {
+        return IntStream.rangeClosed(1, lottoCount)
+                .mapToObj(i -> createRandomLotto(lottoLength))
                 .toList();
     }
 

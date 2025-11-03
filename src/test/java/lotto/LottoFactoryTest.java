@@ -8,8 +8,8 @@ class LottoFactoryTest {
 
     @Test
     void 로또_번호를_생성_할_수_있다() {
-        LottoFactory lottoFactory = new LottoFactory(4, 10, 6);
-        Lotto lotto = lottoFactory.createRandomLotto();
+        LottoFactory lottoFactory = new LottoFactory(4, 10);
+        Lotto lotto = lottoFactory.createRandomLotto(6);
 
         List<Integer> numbers = lotto.getNumbers();
 
@@ -19,8 +19,8 @@ class LottoFactoryTest {
 
     @Test
     void 로또_번호와_다른_보너스_번호를_생성_해야_한다() {
-        LottoFactory lottoFactory = new LottoFactory(4, 11, 6);
-        Lotto lotto = lottoFactory.createRandomLotto();
+        LottoFactory lottoFactory = new LottoFactory(4, 11);
+        Lotto lotto = lottoFactory.createRandomLotto(6);
         BonusLotto bonusLotto = lottoFactory.createRandomBonusLotto(lotto);
 
         List<Integer> numbers = lotto.getNumbers();
