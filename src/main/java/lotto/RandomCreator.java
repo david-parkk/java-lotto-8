@@ -18,4 +18,8 @@ public class RandomCreator {
     public List<Integer> createRandomNumbers() {
         return Randoms.pickUniqueNumbersInRange(startRange, endRange, count);
     }
+
+    public Integer createRandomNumber() {
+        return Randoms.pickNumberInRange(startRange, endRange, 1);
+    }
 }
