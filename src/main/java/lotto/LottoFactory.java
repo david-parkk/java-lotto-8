@@ -11,7 +11,7 @@ public class LottoFactory {
         this.randomCreator = new RandomCreator(startNumber, endNumber, lottoLength);
     }
 
-    private Lotto createRandomLotto() {
+    public Lotto createRandomLotto() {
         List<Integer> numbers = randomCreator.createRandomNumbers();
         return new Lotto(numbers);
     }
@@ -20,5 +20,20 @@ public class LottoFactory {
         return IntStream.rangeClosed(1, count)
                 .mapToObj(i -> createRandomLotto())
                 .toList();
+    }
+
+    public BonusLotto createRandomBonusLotto(Lotto lotto) {
+        Integer randomNumber = randomCreator.createRandomNumber();
+
+        while (true) {
+            List<Integer> numbers = lotto.getNumbers();
+            boolean isDuplicated = numbers.stream()
+                    .anyMatch(number -> randomNumber.equals(number));
+            if (isDuplicated) {
+                randomCreator.createRandomNumber();
+                continue;
+            }
+            return new BonusLotto(randomNumber);
+        }
     }
 }
