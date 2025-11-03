@@ -23,7 +23,7 @@ public class LottoMachine {
             if (hasLottoNumber(number)) {
                 sameCount++;
             }
-            if (hasLottoNumber(number)) {
+            if (hasBonusNumber(number)) {
                 hasBonus = true;
             }
         }
