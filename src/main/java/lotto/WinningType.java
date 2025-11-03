@@ -14,6 +14,10 @@ public class WinningType {
         this.hasBonus = hasBonus;
     }
 
+    public int getRank() {
+        return rank;
+    }
+
     public int getPrize() {
         return prize;
     }
