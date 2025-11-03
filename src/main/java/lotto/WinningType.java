@@ -22,7 +22,7 @@ public class WinningType {
         return sameCount;
     }
 
-    public boolean HasBonus() {
+    public boolean hasBonus() {
         return hasBonus;
     }
 
