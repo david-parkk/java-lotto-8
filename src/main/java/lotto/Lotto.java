@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Lotto {
     private final String ERROR_LOG = "[ERROR] ";
@@ -30,5 +31,14 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return numbers;
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner stringJoiner = new StringJoiner(", ");
+        numbers.forEach(number -> {
+            stringJoiner.add(number.toString());
+        });
+        return stringJoiner.toString();
     }
 }
