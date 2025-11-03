@@ -20,6 +20,6 @@ public class RandomCreator {
     }
 
     public Integer createRandomNumber() {
-        return Randoms.pickNumberInRange(startRange, endRange, 1);
+        return Randoms.pickNumberInRange(startRange, endRange);
     }
 }
